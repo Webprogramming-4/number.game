@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>3인 게임 프로젝트 모음</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <header>
+            <h1>3명의 게임 프로젝트 모음</h1>
+            <p>각 게임을 선택해서 플레이하세요</p>
+        </header>
+
+        <div class="game-selector">
+            <button class="game-btn" onclick="showGame('지연')">
+                <h2>순서 기억력 게임</h2>
+                <p>지연이의 게임</p>
+            </button>
+            <button class="game-btn" onclick="showGame('지우')">
+                <h2>타이핑 레인</h2>
+                <p>지우의 게임</p>
+            </button>
+            <button class="game-btn" onclick="showGame('예은')">
+                <h2>숫자 연결 게임</h2>
+                <p>예은이의 게임</p>
+            </button>
+        </div>
+
+        <!-- 이지연 게임 -->
+        <div id="lee-game" class="game-container hidden">
+            <button class="back-btn" onclick="backToMenu()">메뉴로 돌아가기</button>
+            <div class="wrap">
+                <h1>순서 기억력 게임</h1>
+                <div class="info">
+                    <span>라운드: <span id="lee-round">1</span></span>
+                    <span>정답: <span id="lee-score">0</span></span>
+                    <span>이전 점수: <span id="lee-prevScore">0</span></span>
+                    <span>최고 라운드: <span id="lee-bestRound">1</span></span>
+                </div>
+                <div id="lee-board" class="board" aria-live="polite"></div>
+                <div class="controls">
+                    <button id="lee-restart">다시 시작</button>
+                    <button id="lee-hardModeBtn">하드모드</button>
+                    <span id="lee-timer" style="display:none;margin-left:18px;font-size:18px;color:#d7263d;"></span>
+                </div>
+                <div class="message" id="lee-message"></div>
+            </div>
+        </div>
+
+        <!-- 양지우 게임 -->
+        <div id="yang-game" class="game-container hidden">
+            <button class="back-btn" onclick="backToMenu()">메뉴로 돌아가기</button>
+            <canvas id="yang-canvas"></canvas>
+            <div class="ui-layer">
+                <div class="score-board">
+                    SCORE: <span id="yang-score">0</span>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="yang-input" placeholder="Type text & Press Enter" autocomplete="off">
+                </div>
+            </div>
+            <div id="yang-start-modal" class="modal">
+                <div class="modal-content">
+                    <h1 class="text-3xl">TYPING RAIN</h1>
+                    <p class="text-gray">Type the falling words and press <b>ENTER</b> before they hit the floor!</p>
+                    <button class="btn" onclick="yangGame.start()">GAME START</button>
+                </div>
+            </div>
+            <div id="yang-over-modal" class="modal hidden">
+                <div class="modal-content">
+                    <h1 class="text-3xl">GAME OVER</h1>
+                    <p class="text-xl">Final Score: <span id="yang-final-score" class="font-bold">0</span></p>
+                    <button class="btn" onclick="yangGame.start()">RETRY</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 김예은 게임 -->
+        <div id="number-game" class="game-container hidden">
+            <button class="back-btn" onclick="backToMenu()">메뉴로 돌아가기</button>
+            <h1>Number Touch Game</h1>
+            <p>1부터 50까지 순서대로 누르세요 (틀리면 패널티 있음)</p>
+            <div id="number-best">최고 기록: 없음</div>
+            <div id="number-timer">0.00s</div>
+            <div id="number-board"></div>
+        </div>
+    </div>
+</body>
+</html>
