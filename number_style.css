@@ -1,0 +1,37 @@
+body {
+  background: pink;
+  font-family: 'Arial';
+  text-align: center;
+  padding-top: 20px;
+}
+#game {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+}
+.btn {
+  background: #fff;
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex; justify-content: center; align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.1s, background 0.1s;
+}
+.btn:active { transform: scale(0.95); }
+#timer { font-size: 24px; margin: 15px 0; }
+#best { font-size: 20px; margin-bottom: 10px; }
+
+.die {
+  animation: dieFlash 0.4s;
+  background: #ff6b6b !important;
+}
+@keyframes dieFlash {
+  0% { background: #fff; }
+  50% { background: #ff6b6b; }
+  100% { background: #fff; }
+}
